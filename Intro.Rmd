@@ -1,0 +1,26 @@
+---
+title: "Intro"
+author: "Chelsey"
+date: "8/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r read in}
+
+library(tidyverse)
+library(Seurat)
+library(patchwork)
+library(here)
+
+# Load the PBMC dataset
+pbmc.data <- Read10X(data.dir = ("C:/Users/Chels/Documents/github/SeuratIntro/pbmc3k_filtered_gene_bc_matrices.tar.gz"))
+
+# Initialize the Seurat object with the raw (non-normalized data).
+pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
+pbmc
+
+```
